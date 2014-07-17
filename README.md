@@ -20,6 +20,10 @@ All scripts currently invoke via Yum
            When the utility is done, the data is removed.
 
 ------------------------------------------------
+### disk_speedVAR.sh
+        -> Performs the same functionality as disk_speed.sh but allows for variable
+           input (in MB) for custom sized disk speed testing.
+------------------------------------------------
 ### LAMP_install.sh
         -> This is a comprehensive install for LAMP
            { - Linux
