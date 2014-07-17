@@ -9,13 +9,22 @@ echo "Setting up Vagrant"
 echo " "
 echo "Vagrant Requires VNC, setting that up first."
 
+
   sudo yum -y install vnc-server &&
+	echo "VNC Server Installed"
+	echo " "
   sudo yum -y install tigervnc-server &&
-  
+  	echo "Tiger VNC Instaled"
+	echo " "
   sudo yum -y install vnc
+	echo " VNC installed"
+	echo " "
   sudo yum -y groupinstall Desktop
   sudo yum -y install xterm
-
+	echo "XTerm installed"
+	echo " "
+	echo " "
+	echo "Killing yum to continue"
 	sudo pkill /var/run/yum.pid
   
 echo "VNC install complete"
