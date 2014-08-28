@@ -79,7 +79,11 @@ echo "Install Git"
 	echo " "
 	echo " "
 
-
+echo "Install sysbench"
+	sudo yum -y install sysbench
+	echo "Sysbench Installed"
+	sleep 2
+	echo " "
 
 echo "Configure git for: $un"
 	git config user.name "$un"
