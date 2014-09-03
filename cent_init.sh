@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# There is a good deal of required and handy software packages for an initial install of centOS.
+# There is a good deal of required and handy software packages for an initial install of centOS 6.5.
+# Jordan Westhoff, 2014
+
 
 clear
-
-
 read -p "Username:" un
 
-
-
-
+# Body of the function
+##############################################################
 echo " "
 echo "The current OS version is:" & cat /etc/redhat-release
 
@@ -103,22 +102,13 @@ echo "Configure git for: $un"
 	echo "Git install and configuration: complete."
 	echo "WARNING: Git SSH will still need to be manually configured."
 
-#	echo "Moving and cloning necessary scripts repository."
-#		cd ..
-#		cd ..
-#		user=whoami
-#		cd /home/$user/Desktop
-#		
-#		git clone https://github.com/jordanwesthoff/Scripts.git
-#		echo "Repo scripts cloned"
-		
 
-
-#	echo "Install VNC, VBox and Vagrant"
-#		cd /home/$user/Desktop/Scripts
-#		./vagrant_setup.sh	
-#	echo "Cluster support install complete"
-
+	echo "Install VNC, VBox and Vagrant"
+	cd /usr/local/bin
+	wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/vagrant_setup.sh
+	chmod +x vagrant_setup.sh
+	./vagrant_setup.sh
+	echo "Cluster support install complete"
 	echo " "
 	echo " "
 	echo " "
