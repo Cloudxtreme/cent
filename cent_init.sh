@@ -28,13 +28,16 @@ sleep 2
 	wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 	wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 	sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm	
+	cd /etc/yum.repos.d/
+	rm remi.repo
+	wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/remi.repo
 
 	echo "REMI databased not updated and activated by default."
-	echo "In order to update them, go to"
+	echo "This script replaces default remi file with a new one"
 	echo " ==================================================="
 	echo " sudo vim /etc/yum.repos.d/remi.repo"
 	echo " ==================================================="
-	echo " and set [REMI] to enabled=1 "
+	echo " which sets [REMI] to enabled=1 "
 	echo " "
 	sleep 5
 	echo " "
