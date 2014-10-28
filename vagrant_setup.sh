@@ -9,6 +9,11 @@ echo "Setting up Vagrant"
 echo " "
 echo "Vagrant Requires VNC, setting that up first."
 
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root" 1>&2
+      exit 1
+fi
+
 
   sudo yum -y install vnc-server &&
 	echo "VNC Server Installed"
