@@ -1,8 +1,13 @@
 #!/bin/bash
 
 # There is a good deal of required and handy software packages for an initial install of centOS 6.5.
+# Script MUST be run as root. If not, will error out. 
 # Jordan Westhoff, 2014
 
+if [ "$(id -u)" != "0" ]; then
+  echo "This script must be run as root" 1>&2
+    exit 1
+fi
 
 clear
 read -p "Username:" un
@@ -11,7 +16,7 @@ read -p "Username:" un
 ##############################################################
 echo " "
 echo "The current OS version is:" & cat /etc/redhat-release
-
+sleep 2
 echo "This is the standardized (7/11/2014) install setup for a new CentOS box"
 echo " "
 echo "Install will include htop, 'stress', git, configure git for JW, vnc, virtualbox, vagrant, chromium"
@@ -88,20 +93,15 @@ echo "Install sysbench"
 	echo " "
 
 echo "Configure git for: $un"
-	git config user.name "$un"
+	git config --global user.name "$un"
 	sleep 1
-
-	git config user.mail "$un@gmail.com"
+	git config --global user.email "$un@gmail.com"
 	sleep 1
-
 	git config --global credential.helper cache
 	sleep 1
-
 	git config --global credential.helper 'cache --timeout=3600'
- 
 	echo "Git install and configuration: complete."
 	echo "WARNING: Git SSH will still need to be manually configured."
-
 
 	echo "Install VNC, VBox and Vagrant"
 	cd /usr/local/bin
@@ -119,6 +119,7 @@ echo "Configure git for: $un"
 	echo "Now installing Chromium"
 	cd /etc/yum.repos.d
 		wget http://people.centos.org/hughesjr/chromium/6/chromium-el6.repo
+		sleep 5
 		sudo yum -y install chromium
 	echo "Chromium install complete"
 
