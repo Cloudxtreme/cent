@@ -8,6 +8,20 @@ if [ "$(id -u)" != "0" ]; then
   echo "This script must be run as root" 1>&2
     exit 1
 fi
+####################################################
+
+echo "Setting sudoers priveleges"
+cd /etc
+mv sudoers /home/jordan/Desktop
+wget http://logcat.student.rit.edu/Public%20Share/sudoers
+cd /home/jordan/Desktop
+echo "Check sudo..."
+sleep 5
+
+sudo yum update
+sudo yum -y install openssh-server
+sudo service sshd restart
+chkconfig sshd on
 
 clear
 read -p "Username:" un
