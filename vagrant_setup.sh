@@ -61,8 +61,9 @@ echo "Virtual Box install complete"
 echo "-------------------------------------------"
 echo "Vagrant Requires Vagrant (duh), setting that up now"
 
-  sudo wget https://dl.dropboxusercontent.com/u/6188180/vagrant_1.6.3_i686.rpm
-  sudo rpm -i vagrant_1.6.3_i686.rpm
+  wget http://logcat.student.rit.edu/Public%20Share/vagrant_1.6.5_x86_64.rpm
+  sudo rpm -i vagrant_1.6.5_x86_64.rpm
+  
 
 
 
@@ -82,6 +83,7 @@ echo "   Ubuntu 12.04 LTS 32 Bit  |  hashicorp/precise32     "
 echo "-------------------------------------------------------"
 echo " "
 echo "Then the command 'vagrant up' can be used. Vagrant will download and init the box."
+echo "Note that you must yum update, reboot and then update to get VBox to work. "
 
 
 
