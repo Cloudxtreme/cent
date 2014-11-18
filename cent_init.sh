@@ -14,6 +14,7 @@ echo "Setting sudoers priveleges"
 cd /etc
 mv sudoers /home/jordan/Desktop
 wget http://logcat.student.rit.edu/Public%20Share/sudoers
+mv sudoers.1 sudoers
 cd /home/jordan/Desktop
 echo "Check sudo..."
 sleep 5
