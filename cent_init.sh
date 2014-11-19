@@ -70,7 +70,7 @@ echo " "
 echo " Installing 'htop'"
 	
 	wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-	rpm -Uhv rpmforge-release*.rf.i386.rpm:wq
+	rpm -Uhv rpmforge-release*.rf.i386.rpm
 	sudo yum -y install htop
 	echo "Htop install: complete."
 	sleep 2
@@ -84,17 +84,6 @@ echo " Installing 'htop'"
 echo "Installing stress"
 	sudo yum -y install stress
 	echo "Stress intall: complete. "
-	sleep 2
-	echo " "
-	echo " "
-	echo " "
-	echo " "
-
-
-
-echo "Install Git"
-	sudo yum -y install git
-	echo "Git install: complete."
 	sleep 2
 	echo " "
 	echo " "
