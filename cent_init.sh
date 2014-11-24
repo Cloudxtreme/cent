@@ -10,6 +10,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 ####################################################
 
+# Set the user sudoers values with the custom sudoers file.
 echo "Setting sudoers priveleges"
 cd /etc
 mv sudoers /home/jordan/Desktop
@@ -120,12 +121,12 @@ echo "Configure git for: $un"
 
 
 
-	echo "Now installing Chromium"
-	cd /etc/yum.repos.d
-		wget http://people.centos.org/hughesjr/chromium/6/chromium-el6.repo
-		sleep 5
-		sudo yum -y install chromium
-	echo "Chromium install complete"
+#	echo "Now installing Chromium"
+#	cd /etc/yum.repos.d
+#		wget http://people.centos.org/hughesjr/chromium/6/chromium-el6.repo
+#		sleep 5
+#		sudo yum -y install chromium
+#	echo "Chromium install complete"
 
 
 
