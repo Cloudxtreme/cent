@@ -9,7 +9,7 @@
 #	3) SCP that tar.gz from temp_dir to safe backup_server
 # 	4) Clean out the temp folder 
 
-
+# This script is intended to run more frequently and on just the /DPhoto dir
 
 #############################################################################
 # Check to make sure the script is being run as root. 

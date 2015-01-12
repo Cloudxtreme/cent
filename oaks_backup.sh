@@ -9,8 +9,6 @@
 #	3) SCP that tar.gz from temp_dir to safe backup_server
 # 	4) Clean out the temp folder 
 
-
-
 #############################################################################
 # Check to make sure the script is being run as root. 
 if [ "$(id -u)" != "0" ]; then
@@ -23,16 +21,33 @@ fi
 USER=jordan
 TIME=$(date +%Y_%m_%d_%H_%M_%S)
 BACKUP_SERVER=prowler
-BACKUP_NAME='oaks_web_$TIME.tar.gz'
+BACKUP_NAME='oaks_HTMLall_$TIME.tar.gz'
 
 
 # Make a new home for all of the intermediary files to live. Then go to it.
 mkdir -p /home/$USER/Oaks_temp
 cd /home/$USER/Oaks_temp
-
+mkdir -p other_files
 # Let's start copying and moving directories around. Using tar (gz) to compress and save space. 
-tar -zcvf $BACKUP_NAME /var/www/html/dphoto
+tar -zcvf  dphoto_$TIME.tar.gz /var/www/html/dphoto
+tar -zcvf  wpvaldog_$TIME.tar.gz /var/www/html/wpvaldog
+tar -zcvf  wpvaldogtest_$TIME.tar.gz /var/www/html/wpvaldogtest
+tar -zcvf  photo_$TIME.tar.gz /var/www/html/photo
+tar -zcvf  development_$TIME.tar.gz /var/www/html/development
+tar -zcvf  daddyroot.com_$TIME.tar.gz /var/www/html/daddyroot.com
+tar -zcvf  wordpress_$TIME.tar.gz /var/www/html/wordpress
+tar -zcvf  valdogold_$TIME.tar.gz /var/www/html/valdogold
 
+cp /var/www/html/index.html /home/$USER/Oaks_temp/other_files
+cp /var/www/html/index.php /home/$USER/Oaks_temp/other_files
+cp /var/www/html/linkedin.php /home/$USER/Oaks_temp/other_files
+cp /var/www/html/robots.txt /home/$USER/Oaks_temp/other_files
+
+tar -zcvf other_files.tar.gz /home/$USER/Oaks_temp/other_files
+
+
+cd /home/$USER
+tar -zcvf $BACKUP_NAME.tar.gz /home/$USER/Oaks_temp/other_files
 # Re-setting permissions because Prowler is a little weird about rooted files coming in. 
 chown -R jordan:jordan $BACKUP_NAME
 
