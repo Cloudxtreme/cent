@@ -5,7 +5,7 @@
 
 # Script seeks to accomplish 4 goals, in order
 #	1) Check for root, then move to the specified user, create temp_dir
-#	2) Find the DPhoto directories, tar them into a tar.gz and copy to temp_dir
+#	2) Find the full set of HTML directories, tar them into a tar.gz and copy to temp_dir
 #	3) SCP that tar.gz from temp_dir to safe backup_server
 # 	4) Clean out the temp folder 
 
