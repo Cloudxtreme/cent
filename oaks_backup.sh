@@ -20,11 +20,15 @@ BACKUP_NAME='oaks_web_$TIME.tar.gz'
 
 
 # Make a new home for all of the intermediary files to live. Then go to it.
-mkdir -p /home/$USER/Oaks
-cd /home/$USER/Oaks
+#	mkdir -p /home/$USER/Oaks
+#	cd /home/$USER/Oaks
 
 # Let's start copying and moving directories around. Using tar (gz) to compress and save space. 
-tar -zcvf /home/jordan/$BACKUP_NAME /var/www/html
+tar -zcvf /home/jordan/$BACKUP_NAME /var/www/html/dphoto
 
+# Re-setting permissions because Prowler is a little weird about rooted files coming in. 
+chown -R jordan:jordan $BACKUP_NAME
+
+# Secure copy the backup to my main disk server
 scp $BACKUP_NAME $USER@$BACKUP_SERVER.student.rit.edu:/mnt/Access1/Oaks
 
