@@ -23,7 +23,6 @@ TIME=$(date +%Y_%m_%d_%H_%M_%S)
 BACKUP_SERVER=prowler
 BACKUP_NAME='oaks_HTMLall_$TIME.tar.gz'
 
-
 # Make a new home for all of the intermediary files to live. Then go to it.
 mkdir -p /home/$USER/Oaks_temp
 cd /home/$USER/Oaks_temp
@@ -38,16 +37,16 @@ tar -zcvf  daddyroot.com_$TIME.tar.gz /var/www/html/daddyroot.com
 tar -zcvf  wordpress_$TIME.tar.gz /var/www/html/wordpress
 tar -zcvf  valdogold_$TIME.tar.gz /var/www/html/valdogold
 
+# There are some extra things that are VERY important so lets copy and tar those
 cp /var/www/html/index.html /home/$USER/Oaks_temp/other_files
 cp /var/www/html/index.php /home/$USER/Oaks_temp/other_files
 cp /var/www/html/linkedin.php /home/$USER/Oaks_temp/other_files
 cp /var/www/html/robots.txt /home/$USER/Oaks_temp/other_files
-
 tar -zcvf other_files.tar.gz /home/$USER/Oaks_temp/other_files
 
-
+# Up a directory for easy sake when binding all 
 cd /home/$USER
-tar -zcvf $BACKUP_NAME.tar.gz /home/$USER/Oaks_temp/other_files
+tar -zcvf $BACKUP_NAME.tar.gz /home/$USER/Oaks_temp
 # Re-setting permissions because Prowler is a little weird about rooted files coming in. 
 chown -R jordan:jordan $BACKUP_NAME
 
