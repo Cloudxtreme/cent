@@ -4,7 +4,9 @@ cent
 Scripts for use with new centOS installs. Currently built for the currently implemented SuperMicro i686 server units.
 All scripts currently invoke via Yum
 
-
+-----------------------------------------------
+### oaks_backup & oaks_backup_dphoto
+        -> Deprecated scripts for reference to backup a client set of software backups
 
 ------------------------------------------------
 ### chromium_install.sh
