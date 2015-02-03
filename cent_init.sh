@@ -70,8 +70,8 @@ sleep 2
 echo " "
 echo " Installing 'htop'"
 	
-	wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm
-	rpm -Uhv rpmforge-release*.rf.i386.rpm
+	wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+	rpm -Uhv rpmforge-release*.rf.x86_64.rpm
 	sudo yum -y install htop
 	echo "Htop install: complete."
 	sleep 2
