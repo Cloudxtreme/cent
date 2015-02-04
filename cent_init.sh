@@ -11,6 +11,7 @@ fi
 ####################################################
 
 
+############################################################################
 # OpenSSH for SSH communication
 pkg="openssh-server"
 if yum -qq install $pkg; then
@@ -31,77 +32,83 @@ read -p "Username:" un
 echo " "
 echo "The current OS version is:" & cat /etc/redhat-release
 sleep 2
-echo "This is the standardized (7/11/2014) install setup for a new CentOS box"
-echo " "
-echo "Install will include htop, 'stress', git, configure git for JW, vnc, virtualbox, vagrant, chromium"
-echo "--------------------------------------------------------------------------------------------"
-echo " "
-sleep 5
-
-
 
 echo "Adding EPEL to the repos for additional package support."
 sleep 2 
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm	
+	
+cd /etc/yum.repos.d/
+rm remi.repo
+wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/remi.repo
 
-	wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-	wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-	sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm	
-	cd /etc/yum.repos.d/
-	rm remi.repo
-	wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/remi.repo
-
-	echo "REMI databased not updated and activated by default."
-	echo "This script replaces default remi file with a new one"
-	echo " ==================================================="
-	echo " sudo vim /etc/yum.repos.d/remi.repo"
-	echo " ==================================================="
-	echo " which sets [REMI] to enabled=1 "
-	echo " "
-	sleep 5
-	echo " "
-	echo " "
-	echo " "
-	echo " "
+echo "REMI databased not updated and activated by default."
+echo "This script replaces default remi file with a new one"
+echo " ==================================================="
+echo " sudo vim /etc/yum.repos.d/remi.repo"
+echo " ==================================================="
+echo " which sets [REMI] to enabled=1 "
+echo " "
+sleep 5
+echo " "
+echo " "
+echo " "
+echo " "
 
 
- 
+############## Installing HTOP ############################################################
 echo " "
 echo " Installing 'htop'"
-	
-	wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-	rpm -Uhv rpmforge-release*.rf.x86_64.rpm
-	pkg="htop"
+wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+rpm -Uhv rpmforge-release*.rf.x86_64.rpm
+pkg="htop"
 	if yum -q -y install $pkg; then
     		echo "Successfully installed $pkg"
 	else
     		echo "Error installing $pkg"
 	fi
-	
-	
-	echo "Htop install: complete."
-	sleep 2
-	echo " "
-	echo " "
-	echo " "
-	echo " "
+echo "Htop install: complete."
+sleep 2
+echo " "
+echo " "
+echo " "
+echo " "
+##################### Done Installing ##########################################
 
-
-
+##################### Install Stress ############################################
 echo "Installing stress"
-	sudo yum -y install stress
-	echo "Stress intall: complete. "
-	sleep 2
-	echo " "
-	echo " "
-	echo " "
-	echo " "
+pkg="stress"
+	if yum -q -y install $pkg; then
+    		echo "Successfully installed $pkg"
+	else
+    		echo "Error installing $pkg"
+	fi
+echo "Stress intall: complete. "
+sleep 2
+echo " "
+echo " "
+echo " "
+echo " "
+###################### Done Installing ###########################################
 
+
+
+###################### Install Sysbench ##########################################
 echo "Install sysbench"
-	sudo yum -y install sysbench
+pkg="sysbench"
+	if yum -q -y install $pkg; then
+    		echo "Successfully installed $pkg"
+	else
+    		echo "Error installing $pkg"
+	fi
 	echo "Sysbench Installed"
 	sleep 2
 	echo " "
+#################### Done Installing ##############################################
 
+
+############### Configure GIT #####################################################
 echo "Configure git for: $un"
 	git config --global user.name "$un"
 	sleep 1
@@ -112,6 +119,7 @@ echo "Configure git for: $un"
 	git config --global credential.helper 'cache --timeout=3600'
 	echo "Git install and configuration: complete."
 	echo "WARNING: Git SSH will still need to be manually configured."
+############## Done Installing #####################################################
 
 	echo "Install VNC, VBox and Vagrant"
 	cd /usr/local/bin
