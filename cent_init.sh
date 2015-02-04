@@ -10,24 +10,22 @@ if [ "$(id -u)" != "0" ]; then
 fi
 ####################################################
 
-# Set the user sudoers values with the custom sudoers file.
-echo "Setting sudoers priveleges"
-cd /etc
-mv sudoers /home/jordan/Desktop
-wget http://logcat.student.rit.edu/Public%20Share/sudoers
-mv sudoers.1 sudoers
-cd /home/jordan/Desktop
-echo "Check sudo..."
-sleep 5
 
-sudo yum update
-sudo yum -y install openssh-server
-sudo service sshd restart
+# OpenSSH for SSH communication
+pkg="openssh-server"
+if yum -qq install $pkg; then
+    echo "Successfully installed $pkg"
+else
+    echo "Error installing $pkg"
+fi
+
+# Check and Make Sure SSHD is running and then enable it to run at startup
+sudo service sshd start
 chkconfig sshd on
+###########################################################################
 
 clear
 read -p "Username:" un
-
 # Body of the function
 ##############################################################
 echo " "
