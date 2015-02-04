@@ -70,7 +70,14 @@ echo " Installing 'htop'"
 	
 	wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 	rpm -Uhv rpmforge-release*.rf.x86_64.rpm
-	sudo yum -y install htop
+	pkg="htop"
+	if yum -q -y install $pkg; then
+    		echo "Successfully installed $pkg"
+	else
+    		echo "Error installing $pkg"
+	fi
+	
+	
 	echo "Htop install: complete."
 	sleep 2
 	echo " "
