@@ -4,6 +4,9 @@
 # Script MUST be run as root. If not, will error out. 
 # Jordan Westhoff, 2014
 
+# Default GIT username
+un="jordanwesthoff"
+
 if [ "$(id -u)" != "0" ]; then
   echo "This script must be run as root" 1>&2
     exit 1
@@ -25,8 +28,7 @@ sudo service sshd start
 chkconfig sshd on
 ###########################################################################
 
-clear
-read -p "Username:" un
+
 # Body of the function
 ##############################################################
 echo " "
@@ -120,18 +122,6 @@ echo "Configure git for: $un"
 	echo "Git install and configuration: complete."
 	echo "WARNING: Git SSH will still need to be manually configured."
 ############## Done Installing #####################################################
-
-	echo "Install VNC, VBox and Vagrant"
-	cd /usr/local/bin
-	wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/vagrant_setup.sh
-	chmod +x vagrant_setup.sh
-	./vagrant_setup.sh
-	echo "Cluster support install complete"
-	echo " "
-	echo " "
-	echo " "
-	echo " "
-
 
 
 #	echo "Now installing Chromium"
