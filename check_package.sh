@@ -2,7 +2,7 @@
 
 # Package checking for each node on the cluster using Cerberus test code
 
-
+thesis_directories="/mnt/SLURM/GitHub"
 
 function check_package
 {
@@ -34,3 +34,17 @@ check_package
 
 pkg="ffmpeg"
 check_package
+
+
+cd $thesis_directories/cent
+git pull
+echo "Cent updated"
+
+
+cd $thesis_directories/senior_thesis
+git pull
+echo "senior_thesis updated"
+
+cd $thesis_directories/cerberus
+git pull
+echo "cerberus"
