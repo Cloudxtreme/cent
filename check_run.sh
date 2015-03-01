@@ -1,4 +1,5 @@
 #!/bin/bash
 
 pkg="htop"
-source ./check_package.sh
+echo $pkg
+source check_package.sh
