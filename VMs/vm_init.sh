@@ -12,7 +12,7 @@ fi
 yum -y install openssh-server gcc make kernel-devel
 yum -y install dkms binutils patch libgomp glibc-headers glibc-devel kernel-headers
 yum -y update
-yum -y install git
+yum -y install git graphicsmagick imagemagick
 
 
 
