@@ -34,7 +34,14 @@ function git_creation
 
 function SLURM_mount
 {
-  mkdir -p /mnt/SLURM
+  if [ -d /mnt/SLURM ];
+    then
+  	  echo "Share exists"
+  else
+	    mkdir -p /mnt/SLURM
+	    echo "Share not found. Created.."
+  fi
+  sleep 1
   mount -t vboxsf SLURM /mnt/SLURM
 }
 
