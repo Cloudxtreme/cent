@@ -37,3 +37,11 @@ function SLURM_mount
   mkdir -p /mnt/SLURM
   mount -t vboxsf SLURM /mnt/SLURM
 }
+
+
+
+install_update
+
+git_creation
+
+SLURM_mount
