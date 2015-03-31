@@ -42,6 +42,6 @@ function SLURM_mount
 
 install_update
 
-git_creation
+#git_creation
 
-SLURM_mount
+#SLURM_mount
