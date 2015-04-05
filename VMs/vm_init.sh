@@ -32,7 +32,7 @@ function git_creation
 }
 
 
-function SLURM_mount
+function SLURM_mount_virtualbox
 {
   if [ -d /mnt/SLURM ];
     then
@@ -42,13 +42,27 @@ function SLURM_mount
 	    echo "Share not found. Created.."
   fi
   sleep 1
-  mount -t vmhgfs .host:/ /mnt
+  mount -t vboxsf SLURM /mnt/SLURM
 }
 
+function SLURM_mount_vmware
+{
+  if [ -d /mnt/SLURM ];
+    then
+      echo "Share exists"
+  else
+      mkdir -p /mnt/SLURM
+      echo "Share not found. Created.."
+  fi
+  sleep 1
+  mount -t vmhgfs .host:/ /mnt
+}
 
 
 install_update
 
 #git_creation
 
-#SLURM_mount
+#SLURM_mount_vmware
+
+#SLURM_mount_virtualbox
