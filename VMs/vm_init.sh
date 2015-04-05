@@ -42,7 +42,7 @@ function SLURM_mount
 	    echo "Share not found. Created.."
   fi
   sleep 1
-  mount -t vboxsf SLURM /mnt/SLURM
+  mount -t vmhgfs .host:/ /mnt
 }
 
 
