@@ -45,6 +45,7 @@ function SLURM_mount_virtualbox
   mount -t vboxsf SLURM /mnt/SLURM
 }
 
+
 function SLURM_mount_vmware
 {
   if [ -d /mnt/SLURM ];
