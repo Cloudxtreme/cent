@@ -57,6 +57,11 @@ All scripts currently invoke via Yum
 
 
 -------------------------------------------------
+## VMs
+- Folder for Virtual Machine Provision scripts
+- Tooled to allow for both VirtualBox and VMWare Workstation VM's
+
+
 
 Jordan Westhoff, RIT 2014
 
