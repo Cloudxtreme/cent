@@ -31,3 +31,8 @@ if yum -qq -y install $pkg; then
 else
     echo "Error installing $pkg"
 fi
+
+
+sleep 5
+npm install -g MINTR
+echo "Mintr installed"
