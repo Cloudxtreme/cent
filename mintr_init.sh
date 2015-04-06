@@ -20,3 +20,14 @@ tar zxf node-v0.12.2.tar.gz
 cd node-v0.12.2
 ./configure
 make && make install
+
+sleep 5
+
+
+# Install NPM
+pkg="npm"
+if yum -qq -y install $pkg; then
+    echo "Successfully installed $pkg"
+else
+    echo "Error installing $pkg"
+fi
