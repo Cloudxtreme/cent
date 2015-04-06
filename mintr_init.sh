@@ -34,5 +34,5 @@ fi
 
 
 sleep 5
-npm install -g MINTR
+npm install -g mintr
 echo "Mintr installed"
