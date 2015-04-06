@@ -7,7 +7,10 @@ echo "Tooled for CentOS 6.x"
 echo " "
 echo " "
 
-
+if [ "$(id -u)" != "0" ]; then
+  echo "This script must be run as root" 1>&2
+    exit 1
+fi
 
 cd /usr/src
 wget http://nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz
