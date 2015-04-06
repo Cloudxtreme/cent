@@ -1,12 +1,11 @@
 #!/bin/bash
 
-```
-MINTR Install Tool
-Jordan Westhoff, 2015
-Tooled for CentOS 6.x
-```
 
-
+echo "MINTR Install Tool" 
+echo "Jordan Westhoff, 2015" 
+echo "Tooled for CentOS 6.x" 
+echo " "
+echo " "
 
 
 
@@ -15,3 +14,6 @@ wget http://nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz
 sleep 2
 
 tar zxf node-v0.12.2.tar.gz
+cd node-v0.12.2
+./configure
+make && make install
