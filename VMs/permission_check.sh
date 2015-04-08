@@ -6,4 +6,4 @@
 FULL=$(hostname).$(dnsdomainname)
 echo Hostname=$FULL
 
-touch /mnt/SLURM/vm_test/$Hostname.txt
+touch /mnt/SLURM/vm_test/$FULL.txt
