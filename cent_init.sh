@@ -111,6 +111,15 @@ echo " "
 echo " "
 ###################### Done Installing ###########################################
 
+###################### Install NFS  ##############################################
+sudo yum -y install nfs-utils nfs-utils-lib
+
+sleep 5
+sudo chkconfig nfs on 
+sudo service rpcbind start
+sudo service nfs start
+echo "NFS installed"
+
 ##################### Install Tree  ##############################################
 echo "Installing Tree"
 pkg="tree"
