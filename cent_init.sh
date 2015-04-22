@@ -94,7 +94,21 @@ echo " "
 echo " "
 ###################### Done Installing ###########################################
 
-
+##################### Install Tree  ##############################################
+echo "Installing stress"
+pkg="tree"
+	if yum -q -y install $pkg; then
+    		echo "Successfully installed $pkg"
+	else
+    		echo "Error installing $pkg"
+	fi
+echo "Stress intall: complete. "
+sleep 2
+echo " "
+echo " "
+echo " "
+echo " "
+###################### Done Installing ###########################################
 
 ###################### Install Sysbench ##########################################
 echo "Install sysbench"
