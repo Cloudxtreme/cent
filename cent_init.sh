@@ -78,6 +78,23 @@ echo " "
 echo " "
 ##################### Done Installing ##########################################
 
+##################### Install Kernel-Devel #####################################
+
+pkg="kernel-devel"
+echo "Installing $pkg"
+	if yum -q -y install $pkg; then
+    		echo "Successfully installed $pkg"
+	else
+    		echo "Error installing $pkg"
+	fi
+echo "$pkg intall: complete. "
+sleep 2
+echo " "
+echo " "
+echo " "
+echo " "
+###################### Done Installing ###########################################
+
 ##################### Install Stress ############################################
 echo "Installing stress"
 pkg="stress"
@@ -95,14 +112,14 @@ echo " "
 ###################### Done Installing ###########################################
 
 ##################### Install Tree  ##############################################
-echo "Installing stress"
+echo "Installing Tree"
 pkg="tree"
 	if yum -q -y install $pkg; then
     		echo "Successfully installed $pkg"
 	else
     		echo "Error installing $pkg"
 	fi
-echo "Stress intall: complete. "
+echo "$pkg intall: complete. "
 sleep 2
 echo " "
 echo " "
