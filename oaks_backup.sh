@@ -53,7 +53,7 @@ chown -R jordan:jordan $BACKUP_NAME
 # Secure copy the backup to my main disk server. Passwordless SSH is only run through
 #	my specific user account - not su, so make sure to revert for secure and permissive SSH
 su $USER
-scp $BACKUP_NAME $USER@$BACKUP_SERVER.student.rit.edu:/mnt/Access1/Oaks >> scp_log.txt
+scp $BACKUP_NAME $USER@$BACKUP_SERVER >> scp_log.txt
 
 
 # Sometimes SCP hangs a little at the end when piping to log.
