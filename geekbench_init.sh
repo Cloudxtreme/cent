@@ -16,7 +16,7 @@ cd Geekbench-3.2.0-Linux
 
 echo "Setup for Geekbench"
 sudo apt-get install lib32stdc++6
-./geekbench_x86_64 -r jaw4290@rit.edu jxrva-3bau5-n6nt5-pi36h-nbfc6-kkt2x-eh6qc-24seg-2ccps 
+./geekbench_x86_64 -r $serial_email $serial_number
 
 cd /home/jordan/Desktop/Geekbench-3.2.0
 ./geekbench_x86_64 --upload 
