@@ -9,7 +9,7 @@
 
 
 
-SERVER="Server=intruder.student.rit.edu"
+SERVER="Server=cerberus-monitor.com"
 FULL=$(hostname).$(dnsdomainname)
 echo $SERVER
 echo Hostname=$FULL
