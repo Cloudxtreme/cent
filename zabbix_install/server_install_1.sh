@@ -28,3 +28,6 @@ echo " shell> mysql -uzabbix -p<password> zabbix < database/mysql/images.sql"
 echo " shell> mysql -uzabbix -p<password> zabbix < database/mysql/data.sql"
 echo " "
 echo " "
+echo " Edit /etc/php.ini and remove the semi-colon before the TimeZone line under MODULE SETINGS"
+echo " Timezone should be set to US/Eastern (in quotes)"
+
