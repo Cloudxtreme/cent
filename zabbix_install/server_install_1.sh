@@ -16,3 +16,13 @@ sudo chkconfig mysqld on
 
 
 echo "First stage completed, please configure mySQL"
+echo " "
+echo " "
+echo " Shell > mysql -uroot -p<password>"
+echo " mysql> create database zabbix character set utf8 collate utf8_bin;"
+echo " mysql> grant all privileges on zabbix.* to zabbix@localhost identified by '<password>';"
+echo " mysql> quit;"
+echo " "
+echo " shell> mysql -uzabbix -p<password> zabbix < database/mysql/schema.sql"
+echo " shell> mysql -uzabbix -p<password> zabbix < database/mysql/images.sql"
+echo " shell> mysql -uzabbix -p<password> zabbix < database/mysql/data.sql"
