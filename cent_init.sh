@@ -50,9 +50,12 @@ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm	
 	
-cd /etc/yum.repos.d/
-rm remi.repo
-wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/remi.repo
+#cd /etc/yum.repos.d/
+#rm remi.repo
+#wget https://raw.githubusercontent.com/jordanwesthoff/cent/master/remi.repo
+
+wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm 
+sudo rpm -Uvh remi-release-6*.rpm
 
 echo "REMI databased not updated and activated by default."
 echo "This script replaces default remi file with a new one"
